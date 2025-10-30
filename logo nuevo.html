@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hotel San Martino</title>
+  <meta name="description" content="Hotel San Martino - Elegancia y confort en el corazón de la ciudad. Reserva ahora." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --primary:#0b2545; /* azul oscuro */
+      --accent:#c99b4a;  /* dorado */
+      --muted:#7b8aa3;
+      --radius:12px;
+      --container:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color:var(--primary);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{position:sticky;top:0;backdrop-filter: blur(6px);background:rgba(255,255,255,0.7);border-bottom:1px solid rgba(11,37,69,0.05);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(180deg,var(--primary),#123a6a);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:'Playfair Display';box-shadow:0 6px 18px rgba(11,37,69,0.12)}
+    .brand h1{margin:0;font-size:1.05rem;line-height:1;color:var(--primary);font-family:'Playfair Display'}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    .cta{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;font-weight:600}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:40px;padding:48px 0;align-items:center}
+    .hero-left h2{font-family:'Playfair Display';font-size:2.4rem;margin:0 0 12px}
+    .hero-left p{color:var(--muted);margin:0 0 18px}
+    .hero-card{background:white;border-radius:16px;box-shadow:0 14px 40px rgba(11,37,69,0.08);overflow:hidden;border:1px solid rgba(11,37,69,0.04)}
+    .reserve{padding:20px}
+    .input-row{display:flex;gap:8px}
+    .input{flex:1;padding:10px;border-radius:10px;border:1px solid #e6e9f0}
+    .btn-primary{background:var(--primary);color:white;padding:10px 14px;border-radius:10px;border:none;cursor:pointer}
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-title{display:flex;align-items:end;gap:12px;margin-bottom:22px}
+    .section-title h3{margin:0;font-family:'Playfair Display';font-size:1.4rem}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:white;border-radius:12px;padding:16px;border:1px solid rgba(11,37,69,0.04);box-shadow:0 8px 24px rgba(11,37,69,0.04)}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+    .services{display:flex;gap:18px;flex-wrap:wrap}
+    .service{flex:1 1 220px;background:white;border-radius:12px;padding:18px;border:1px solid rgba(11,37,69,0.04);display:flex;gap:12px;align-items:flex-start}
+    .service .icon{width:46px;height:46px;border-radius:10px;background:linear-gradient(180deg,var(--primary),#123a6a);color:white;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:10px}
+
+    /* Testimonials */
+    .testimonials{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .testimonial{background:linear-gradient(180deg,rgba(11,37,69,0.03),white);padding:18px;border-radius:12px}
+
+    /* Footer */
+    footer{background:var(--primary);color:white;padding:36px 0;border-top-left-radius:20px;border-top-right-radius:20px}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr;}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:640px){
+      .cards{grid-template-columns:1fr}
+      nav ul{display:none}
+      header .nav{padding:10px}
+      .hero-left h2{font-size:1.6rem}
+      .gallery img{height:120px}
+    }
+
+    /* Small helpers */
+    .muted{color:var(--muted)}
+    .stars{color:var(--accent);font-weight:700}
+    .pill{background:rgba(11,37,69,0.05);padding:6px 10px;border-radius:999px;color:var(--primary);font-weight:600}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+          <img src="LOGOOO.jpeg" alt="Logo Hotel San Marino" style="width:60px;height:60px;border-radius:10px;object-fit:cover;">
+          <div>
+            <h1>Hotel San Martino</h1>
+            <div class="muted" style="font-size:0.85rem">Elegancia · Confort · Tranquilidad</div>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#habitaciones">Habitaciones</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <div style="display:flex;gap:10px;align-items:center">
+          <a class="pill" href="#ubicacion">Ubicación</a>
+          <a class="cta" href="#reservas">Reserva</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <p class="pill">Bienvenido</p>
+        <h2>Descansa con estilo en <span style="color:var(--accent)">Hotel San Martino</span></h2>
+        <p class="muted">Disfruta nuestras habitaciones modernas, servicio personalizado y una ubicación privilegiada cercana a los principales atractivos de la ciudad. Ideal para viajes de negocios y escapadas en familia.</p>
+        <div style="display:flex;gap:12px;margin-top:18px;align-items:center">
+          <button class="btn-primary">Explorar habitaciones</button>
+          <a href="#galeria" style="padding:10px 14px;border-radius:10px;border:1px solid rgba(11,37,69,0.06);">Ver galería</a>
+        </div>
+        <div style="margin-top:28px;display:flex;gap:10px;align-items:center">
+          <div style="display:flex;flex-direction:column">
+            <span class="muted">Desde</span>
+            <strong style="font-size:1.25rem">S/ 220 / noche</strong>
+          </div>
+          <div style="display:flex;flex-direction:column;margin-left:18px">
+            <span class="muted">Calificación</span>
+            <div class="stars">★★★★☆ 4.6</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div style="display:flex;gap:12px;align-items:center;padding:14px;border-bottom:1px solid rgba(11,37,69,0.03)">
+          <div style="width:64px;height:64px;background:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1') center/cover;border-radius:10px"></div>
+          <div>
+            <div style="font-weight:700">Reserva rápida</div>
+            <div class="muted" style="font-size:0.9rem">Compara tarifas y asegura tu habitación</div>
+          </div>
+        </div>
+        <div class="reserve">
+          <form id="reservationForm" onsubmit="return reserve(event)">
+            <div style="margin-bottom:12px" class="input-row">
+              <input class="input" type="date" id="checkin" required />
+              <input class="input" type="date" id="checkout" required />
+            </div>
+            <div style="margin-bottom:12px" class="input-row">
+              <select class="input" id="roomType">
+                <option value="suite">Suite Ejecutiva</option>
+                <option value="double">Doble Deluxe</option>
+                <option value="family">Familiar</option>
+              </select>
+              <input class="input" type="number" id="guests" min="1" value="2" />
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="btn-primary" type="submit">Ver disponibilidad</button>
+              <a href="#contacto" style="padding:10px 12px;border-radius:10px;border:1px solid rgba(11,37,69,0.06);">Contacto</a>
+            </div>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <section id="habitaciones">
+      <div class="section-title">
+        <h3>Nuestras Habitaciones</h3>
+        <div class="muted">Comodidad, diseño y servicio</div>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1501117716987-c8e36d5f5f8f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="Suite Ejecutiva">
+          <h4>Suite Ejecutiva</h4>
+          <p class="muted">Espacio amplio, escritorio de trabajo y sala privada — ideal para viajeros de negocio.</p>
+          <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+            <div class="muted">Wi‑Fi · TV · Desayuno</div>
+            <div style="font-weight:700">S/ 380</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=7" alt="Doble Deluxe">
+          <h4>Habitación Doble Deluxe</h4>
+          <p class="muted">Cama king o twin, balcón con vista y amenidades premium.</p>
+          <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+            <div class="muted">A/C · TV · Desayuno</div>
+            <div style="font-weight:700">S/ 260</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1505691723518-36a63f4a8a14?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="Familiar">
+          <h4>Habitación Familiar</h4>
+          <p class="muted">Espacio para 4 personas, cómodo y funcional para familias.</p>
+          <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+            <div class="muted">Cuna bajo petición · TV · Desayuno</div>
+            <div style="font-weight:700">S/ 340</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="section-title">
+        <h3>Servicios</h3>
+        <div class="muted">Todo lo que necesitas para una estadía perfecta</div>
+      </div>
+      <div class="services">
+        <div class="service">
+          <div class="icon">R</div>
+          <div>
+            <strong>Restaurante & Bar</strong>
+            <div class="muted">Gastronomía local e internacional. Horario: 07:00 - 23:00</div>
+          </div>
+        </div>
+        <div class="service">
+          <div class="icon">S</div>
+          <div>
+            <strong>Spa & Bienestar</strong>
+            <div class="muted">Masajes, sauna y tratamientos relajantes (previa reserva).</div>
+          </div>
+        </div>
+        <div class="service">
+          <div class="icon">P</div>
+          <div>
+            <strong>Piscina y Gimnasio</strong>
+            <div class="muted">Piscina climatizada y gimnasio totalmente equipado.</div>
+          </div>
+        </div>
+        <div class="service">
+          <div class="icon">C</div>
+          <div>
+            <strong>Salas de eventos</strong>
+            <div class="muted">Espacios para reuniones y eventos corporativos.</div>
+          </div>
+        </div>
+        <div class="service">
+          <div class="icon">T</div>
+          <div>
+            <strong>Traslado Aeropuerto</strong>
+            <div class="muted">Servicios de traslado con costo adicional.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="section-title">
+        <h3>Galería</h3>
+        <div class="muted">Un vistazo a nuestros espacios</div>
+      </div>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1505691723518-36a63f4a8a14?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="">
+        <img src="https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=7" alt="">
+        <img src="https://images.unsplash.com/photo-1501117716987-c8e36d5f5f8f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="">
+        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5" alt="">
+      </div>
+    </section>
+
+    <section id="testimonios">
+      <div class="section-title">
+        <h3>Opiniones de Huéspedes</h3>
+        <div class="muted">Lo que dicen quienes ya nos visitaron</div>
+      </div>
+      <div class="testimonials">
+        <div class="testimonial">
+          <strong>María L.</strong>
+          <div class="muted">"Servicio excepcional y habitaciones muy cómodas. Volvería sin duda."</div>
+        </div>
+        <div class="testimonial">
+          <strong>Carlos R.</strong>
+          <div class="muted">"Ubicación perfecta y el desayuno estuvo delicioso. Atención 10/10."</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ubicacion">
+      <div class="section-title">
+        <h3>Ubicación</h3>
+        <div class="muted">Fácil acceso a transporte y atracciones</div>
+      </div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
+        <div style="flex:1;min-width:260px">
+          <p class="muted">Calle Principal 123, Centro — A 10 minutos del aeropuerto y cerca de museos, restaurantes y centros comerciales.</p>
+          <ul class="muted">
+            <li>Check-in: 14:00</li>
+            <li>Check-out: 12:00</li>
+            <li>Política de cancelación: 24 horas antes</li>
+          </ul>
+        </div>
+        <div style="flex:1;min-width:260px">
+          <!-- Mapa embebido: reemplaza el src con tu Google Maps embed URL -->
+          <iframe style="width:100%;height:220px;border:0;border-radius:12px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.504..." loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="section-title">
+        <h3>Contacto & Reservas</h3>
+        <div class="muted">¿Necesitas ayuda? Escríbenos</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+        <form id="contactForm" onsubmit="return contact(event)" style="background:white;padding:18px;border-radius:12px;border:1px solid rgba(11,37,69,0.04)">
+          <div style="display:flex;gap:8px;margin-bottom:10px">
+            <input class="input" type="text" id="name" placeholder="Nombre" required />
+            <input class="input" type="email" id="email" placeholder="Correo" required />
+          </div>
+          <div style="display:flex;gap:8px;margin-bottom:10px">
+            <input class="input" type="tel" id="phone" placeholder="Teléfono" />
+            <input class="input" type="text" id="subject" placeholder="Asunto" />
+          </div>
+          <textarea class="input" id="message" placeholder="Mensaje" rows="5" style="resize:vertical"></textarea>
+          <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+            <button class="btn-primary" type="submit">Enviar mensaje</button>
+            <div class="muted">o contáctanos: <strong>reservas@sanmartino.com</strong></div>
+          </div>
+        </form>
+
+        <aside style="display:flex;flex-direction:column;gap:12px;">
+          <div style="background:white;padding:16px;border-radius:12px;border:1px solid rgba(11,37,69,0.04)">
+            <strong>Teléfono</strong>
+            <div class="muted">(+51) 999 999 999</div>
+          </div>
+          <div style="background:white;padding:16px;border-radius:12px;border:1px solid rgba(11,37,69,0.04)">
+            <strong>Horario</strong>
+            <div class="muted">Atención 24/7 · Recepción</div>
+          </div>
+          <div style="background:white;padding:16px;border-radius:12px;border:1px solid rgba(11,37,69,0.04)">
+            <strong>Redes</strong>
+            <div class="muted">Instagram · Facebook · WhatsApp</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+        <div>
+          <div style="display:flex;gap:12px;align-items:center">
+            <img src="LOGOOO.jpeg" alt="Logo Hotel San Marino" style="width:60px;height:60px;border-radius:10px;object-fit:cover;">
+            <div>
+              <strong>Hotel San Martino</strong>
+              <div class="muted" style="color:rgba(255,255,255,0.85)">Elegancia · Confort · Tranquilidad</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:18px;align-items:center">
+          <div class="muted" style="color:rgba(255,255,255,0.9)">reservas@sanmartino.com</div>
+          <div class="muted" style="color:rgba(255,255,255,0.9)">(+51) 999 999 999</div>
+          <a href="#reservas" class="cta" style="background:white;color:var(--primary);">Reserva</a>
+        </div>
+      </div>
+      <div style="margin-top:18px;color:rgba(255,255,255,0.75);font-size:0.9rem">© <span id="year"></span> Hotel San Martino. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Small interactive behaviors (no backend) - For demo/prototype only
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function reserve(e){
+      e.preventDefault();
+      const checkin = document.getElementById('checkin').value;
+      const checkout = document.getElementById('checkout').value;
+      const room = document.getElementById('roomType').value;
+      const guests = document.getElementById('guests').value;
+
+      if(!checkin || !checkout){
+        alert('Por favor selecciona fechas.');
+        return false;
+      }
+      // Basic validation
+      if(new Date(checkout) <= new Date(checkin)){
+        alert('La fecha de salida debe ser posterior a la de llegada.');
+        return false;
+      }
+
+      // Simulate availability check and show a friendly summary
+      const summary = `Reserva simulada:\n- Check‑in: ${checkin}\n- Check‑out: ${checkout}\n- Habitación: ${room}\n- Huéspedes: ${guests}\n\nPara confirmar, contáctanos a reservas@sanmartino.com o al WhatsApp.`;
+      alert(summary);
+      return false;
+    }
+
+    function contact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message){
+        alert('Por favor completa los campos obligatorios.');
+        return false;
+      }
+      alert('Gracias, ' + name + '. Hemos recibido tu mensaje. Te responderemos pronto.');
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
